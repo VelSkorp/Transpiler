@@ -1,0 +1,23 @@
+{
+	"while ({Counter} {EqualSign} {Nuber})": "while ({Counter} {EqualSign} {Nuber}) do\r",
+
+	"for ({Counter} = {Nuber}; {Counter} {EqualSign} {Variable2}; {Counter} = {Counter} {Sign} {Number2})": "{Counter} := {Nuber};\nwhile ({Counter} {EqualSign} {Variable2}) do\nBegin\n{Counter} = {Counter} {Sign} {Number2};\r",
+
+	"if ({Operand1} {EqualSign} {Operand2})": "if {Operand1} {EqualSign} {Operand2} then\r",
+
+	" == ": " = ",
+
+	" != ": " <> ",
+
+	"main()": "",
+
+	"#include <stdio.h>": "\n",
+
+	"{": "Begin",
+
+	"}": "End;",
+
+	" = ": " := ",
+
+	"printf": "write"
+}
