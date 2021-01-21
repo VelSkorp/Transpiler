@@ -49,14 +49,17 @@
     <Compile Include="JsonReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translators\BaseTranslator.cs" />
+    <Compile Include="Translators\TranslatorsFromC\BaseTranslatorFromC.cs" />
+    <Compile Include="Translators\TranslatorsFromC\CToPascalTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="CToPascal.json" />
+    <None Include="Translators\TranslatorsFromC\CToPascal.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Test.c" />
+    <Content Include="Translators\TranslatorsFromC\Test.c" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
