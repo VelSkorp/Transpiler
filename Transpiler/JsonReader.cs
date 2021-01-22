@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Transpiler
 {
-	public class JsonReader
+	public class JsonReader : IPatternsReader
 	{
 		private string _filePath;
 

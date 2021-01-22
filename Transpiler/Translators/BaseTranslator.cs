@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -8,21 +6,20 @@ namespace Transpiler
 {
 	public class BaseTranslator
 	{
-		private JsonReader JsonReader { get; set; }
+		private IPatternsReader PatternsReader { get; set; }
 		protected string[] Code { get; set; }
 		protected string[] DataTypes { get; set; }
 
-		public BaseTranslator(string codeFilePath, string patternsFilePath)
+		public BaseTranslator(string[] code, IPatternsReader patternsReader)
 		{
-			JsonReader = new JsonReader(patternsFilePath);
-			var streamReader = new StreamReader(codeFilePath);
-			Code = streamReader.ReadToEnd().Split('\n');
+			PatternsReader = patternsReader;
+			Code = code;
 		}
 
 		public virtual string Translate()
 		{
 			var outupCode = new StringBuilder();
-			List<string> inputCodePatterns = JsonReader.GetKeys();
+			List<string> inputCodePatterns = PatternsReader.GetKeys();
 
 			foreach (var codeRow in Code)
 			{
@@ -32,7 +29,7 @@ namespace Transpiler
 				{
 					if (newRow.Contains(inputCodePattern))
 					{
-						string newValue = JsonReader.GetValue(inputCodePattern);
+						string newValue = PatternsReader.GetValue(inputCodePattern);
 						newRow = newRow.Replace(inputCodePattern, newValue);
 						break;
 					}
@@ -40,7 +37,7 @@ namespace Transpiler
 					{
 						if (MatchesThePattern(codeRow, inputCodePattern, out Dictionary<string, string> keyValuePairs))
 						{
-							newRow = PutValuesInPattern(keyValuePairs, JsonReader.GetValue(inputCodePattern));
+							newRow = PutValuesInPattern(keyValuePairs, PatternsReader.GetValue(inputCodePattern));
 						}
 					}
 				}
@@ -56,7 +53,7 @@ namespace Transpiler
 		/// Сhecks if the pattern matches a line of code
 		/// </summary>
 		/// <returns>Returns true if the pattern matches the line of code</returns>
-		public static bool MatchesThePattern(string codeRow, string pattern, out Dictionary<string, string> keyValuePairs)
+		private static bool MatchesThePattern(string codeRow, string pattern, out Dictionary<string, string> keyValuePairs)
 		{
 			keyValuePairs = new Dictionary<string, string>();
 			var key = new StringBuilder();
@@ -102,7 +99,7 @@ namespace Transpiler
 			return pattern == codeRow;
 		}
 
-		public static string PutValuesInPattern(Dictionary<string, string> keyValuePairs, string pattern)
+		private static string PutValuesInPattern(Dictionary<string, string> keyValuePairs, string pattern)
 		{
 			var key = new StringBuilder();
 			bool isKeyFound = false;
@@ -145,7 +142,7 @@ namespace Transpiler
 			return pattern;
 		}
 
-		public static string GetValueForKey(StringBuilder inputKey, string code, ref string pattern)
+		private static string GetValueForKey(StringBuilder inputKey, string code, ref string pattern)
 		{
 			var outpuKey = new StringBuilder();
 
@@ -182,7 +179,7 @@ namespace Transpiler
 			return "";
 		}
 
-		public static string ParseValue(StringBuilder key, int keyStart, string code, ref string pattern)
+		private static string ParseValue(StringBuilder key, int keyStart, string code, ref string pattern)
 		{
 			if (keyStart >= code.Length)
 			{

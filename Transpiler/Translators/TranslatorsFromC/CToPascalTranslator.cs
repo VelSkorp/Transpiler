@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 namespace Transpiler
 {
 	public class CToPascalTranslator: BaseTranslatorFromC
 	{
-		public CToPascalTranslator(string codeFilePath, string patternsFilePath)
-			: base(codeFilePath, patternsFilePath)
+		public CToPascalTranslator(string[] code, IPatternsReader patternsReader)
+			: base(code, patternsReader)
 		{
 		}
 
@@ -42,7 +39,7 @@ namespace Transpiler
 
 			return  code.Insert(code.Length, ".");
 		}
-		public string DeclaringVariables()
+		private string DeclaringVariables()
 		{
 			var variables = new StringBuilder("var ");
 
