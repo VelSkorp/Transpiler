@@ -52,15 +52,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Translators\BaseTranslator.cs" />
     <Compile Include="Translators\TranslatorsFromC\BaseTranslatorFromC.cs" />
-    <Compile Include="Translators\TranslatorsFromC\CToPascalTranslator.cs" />
+    <Compile Include="Translators\TranslatorsFromC\CToPascal\CToPascalTranslator.cs" />
+    <Compile Include="Translators\TranslatorsFromPascal\BaseTranslatorFromPascal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Translators\TranslatorsFromC\CToPascal.json" />
+    <None Include="Translators\TranslatorsFromC\CToPascal\CToPascal.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Translators\TranslatorsFromC\Test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Translators\TranslatorsFromPascal\PascalToC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
