@@ -1,0 +1,23 @@
+{
+  "while ({Counter} {EqualSign} {Nuber}) do": "while ({Counter} {EqualSign} {Nuber})\n",
+
+  "for {Counter} := {Value} to {EndValue} do": "for ({Counter} = {Value}; {Counter} < {EndValue}; {Counter}++)\n",
+
+  "for {Counter} := {Value} downto {EndValue} do": "for ({Counter} = {Value}; {Counter} > {EndValue}; {Counter}--)\n",
+
+  "if {Operand1} {EqualSign} {Operand2} then": "if ({Operand1} {EqualSign} {Operand2})\n",
+
+  " = ": " == ",
+
+  " <> ": " != ",
+
+  "Begin": "{\n",
+
+  "End;": "}\n",
+
+  "End.": "}\n",
+
+  " := ": " = ",
+
+  "write": "printf"
+}

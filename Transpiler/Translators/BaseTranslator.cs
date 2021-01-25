@@ -63,6 +63,7 @@ namespace Transpiler
 
 			codeRow = codeRow.Trim('\t');
 			codeRow = codeRow.Trim('\r');
+			codeRow = codeRow.Trim('\n');
 
 			while (i < pattern.Length)
 			{

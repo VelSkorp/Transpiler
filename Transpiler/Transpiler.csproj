@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -54,17 +56,18 @@
     <Compile Include="Translators\TranslatorsFromC\BaseTranslatorFromC.cs" />
     <Compile Include="Translators\TranslatorsFromC\CToPascal\CToPascalTranslator.cs" />
     <Compile Include="Translators\TranslatorsFromPascal\BaseTranslatorFromPascal.cs" />
+    <Compile Include="Translators\TranslatorsFromPascal\PascalToC\PascalToCTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Translators\TranslatorsFromC\CToPascal\CToPascal.json" />
     <None Include="packages.config" />
+    <None Include="Translators\TranslatorsFromPascal\PascalToC\PascalToC.json" />
+    <None Include="Translators\TranslatorsFromPascal\Test.pas" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Translators\TranslatorsFromC\Test.c" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Translators\TranslatorsFromPascal\PascalToC\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
