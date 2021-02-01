@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Transpiler
 {
-	public class BaseTranslator
+	public class BaseTranslator : ITranslator
 	{
 		private IPatternsReader PatternsReader { get; set; }
 		protected string[] Code { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Dna;
+using System.IO;
 
 namespace Transpiler
 {
@@ -9,13 +10,21 @@ namespace Transpiler
 			string codeFilePath = @"C:\Users\konts\source\repos\Transpiler\Transpiler\Translators\TranslatorsFromPascal\Test.pas";
 			string patternsFilePath = @"C:\Users\konts\source\repos\Transpiler\Transpiler\Translators\TranslatorsFromPascal\PascalToC\PascalToC.json";
 
-			var jsonReader = new JsonReader(patternsFilePath);
+			// Setup the Dna Framework
+			Framework.Construct<DefaultFrameworkConstruction>()
+				.AddFileLogger()
+				.AddTranslatorContext()
+				.Build();
+
 			var streamReader = new StreamReader(codeFilePath);
 			string[] code = streamReader.ReadToEnd().Replace("\r", "\n").Split('\n');
 			streamReader.Close();
 
-			var translator = new PascalToCTranslator(code, jsonReader);
-			string translatedCode = translator.Translate();
+			var patternsReader = StringToPatternsReader.Convert("Json", patternsFilePath);
+
+			DI.TranslatorContext.Translator = StringToTranslator.Convert("PascalToC", code, patternsReader);
+
+			string translatedCode = DI.TranslatorContext.Translator.Translate();
 
 			string translatedCodeFilePath = codeFilePath.Replace(".pas", ".c");
 			var streamWriter = new StreamWriter(translatedCodeFilePath);
