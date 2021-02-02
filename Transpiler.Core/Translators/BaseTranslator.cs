@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public class BaseTranslator : ITranslator
 	{

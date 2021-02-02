@@ -1,11 +1,11 @@
 ﻿using Dna;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
     /// <summary>
     /// A shorthand access class to get DI services with nice clean short code
     /// </summary>
-    public static class DI
+    public static class CoreDI
     {
         /// <summary>
         /// A shortcut to access the <see cref="TranslatorContext"/>

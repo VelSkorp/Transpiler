@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public class CToPascalTranslator: BaseTranslatorFromC
 	{

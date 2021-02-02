@@ -1,4 +1,4 @@
-﻿namespace Transpiler
+﻿namespace Transpiler.Core
 {
 	public interface ITranslator
 	{

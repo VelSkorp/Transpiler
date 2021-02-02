@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public static class StringToTranslator
 	{

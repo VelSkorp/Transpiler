@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
     public static class StringToPatternsReader
     {

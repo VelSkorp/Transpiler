@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public class BaseTranslatorFromPascal : BaseTranslator
 	{

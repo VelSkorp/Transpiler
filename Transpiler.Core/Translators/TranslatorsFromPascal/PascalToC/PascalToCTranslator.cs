@@ -2,7 +2,7 @@
 using System.Text;
 using System.Linq;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public class PascalToCTranslator : BaseTranslatorFromPascal
 	{

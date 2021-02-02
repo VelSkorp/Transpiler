@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	public class JsonReader : IPatternsReader
 	{

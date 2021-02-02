@@ -1,7 +1,7 @@
 ﻿using Dna;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Transpiler
+namespace Transpiler.Core
 {
 	/// <summary>
 	/// Extension methods for the <see cref="FrameworkConstruction"/>
