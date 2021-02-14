@@ -18,7 +18,7 @@ namespace Transpiler.Core
 			{
 				if (deleteNextRow)
 				{
-					Code[i] = "\n";
+					Code[i + 1] = "\n";
 					deleteNextRow = false;
 				}
 
@@ -39,6 +39,7 @@ namespace Transpiler.Core
 
 			return  code.Insert(code.Length, ".");
 		}
+
 		private string DeclaringVariables()
 		{
 			var variables = new StringBuilder("var ");
@@ -90,12 +91,10 @@ namespace Transpiler.Core
 						break;
 				}
 
-
 				variables.Append(";\n\t");
 			}
 
 			return variables.ToString();
-
 		}
 	}
 }
